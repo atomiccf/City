@@ -1,0 +1,61 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+
+}
+body {
+  display: flex;
+  flex-direction: column;
+  background-color: aliceblue;
+
+}
+.container {
+  margin: 0 auto;
+  width: 1200px;
+
+
+}
+.header_background{
+  height: 529px;
+  background-image: url("img/goroda-min.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+button {
+  width: 130px;
+
+
+}
+main {
+  margin-top: 50px;
+  display: flex;
+  flex: 1 0 auto;
+  flex-flow: column;
+
+}
+h6 {
+  font-size: 20px;
+
+}
+
+footer{
+  margin-top: 10px;
+  flex: 1 0 auto;
+
+  p{
+    text-align: center;
+    border-top: 1px solid black;
+
+
+  }
+
+
+}
+
+a{
+  text-decoration:none;
+
+}

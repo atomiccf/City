@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>hot_seat_game</title>
+   
+
+</head>
+<body>
+    
+    <div id="message">
+      </div>
+    <div class="container">
+                     <div class="gameField">
+                    <div id='playerInfo_block'>
+                    <div id="firstPlayer_name"></div>
+                    <div id="firstPlayer_info"></div>
+                        <div id="secondPlayer_name"></div>
+                        <div id="secondPlayer_info"></div>
+                    </div>
+                    <div class='gameField_block'>
+                        <div id="firstPlayer_gameField"></div>
+                        <div id="secondPlayer_gameField"></div>
+                    </div>
+                    <div class='input_block'>
+
+                        <input type="text" name="" id="field">
+                        <button id="move" type="button" class="btn btn-outline-primary">Сделать ход</button>
+                    </div>
+        </div>
+        <div class="reg" id="reg">
+            <label for="reg_valueOne">Введите имя первого игрока:</label><br>
+            <input type="text" id="reg_valueOne"><br>
+            <label for="reg_valueTwo">Введите имя второго игрока: </label><br>
+            <input type="text" id="reg_valueTwo"><br>
+
+            <button id="reg_button" class="btn btn-outline-primary">Подтвердить</button>
+        </div>
+    </div>
+   
+
+
+      
+    <script src="library.js"></script>
+    <script src="cities.js"></script>
+
+</body>
+</html>

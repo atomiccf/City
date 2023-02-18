@@ -1,0 +1,76 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+
+}
+
+.container {
+
+margin: 0 auto;
+width: 960px;
+
+
+}
+
+.gameField {
+display: flex;
+flex-flow: column;
+align-items: center;
+}
+
+.playerInfo_block {
+    width: 50%;
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+
+}
+.gameField_block {
+    width: 100%;
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+
+
+}
+
+.input_block {
+
+    display: flex;
+    flex-flow: row;
+
+
+}
+
+.firstPlayer_info {
+width: 25%;
+height: 10px;
+background-color: aquamarine;
+
+}
+
+.secondPlayer_info {
+    width: 25%;
+    height: 10px;
+    background-color: rgb(78, 18, 63);
+    
+    }
+
+
+.firstPlayer_gameField{
+    width: 25%;
+    height: 10px;
+background-color: red;
+
+
+}
+
+.secondPlayer_gameField{
+    width: 25%;
+    height: 10px;
+    background-color: chartreuse;
+    
+    
+    }
