@@ -20,7 +20,18 @@ width: 960px;
 
 
 }
+#message {
+    position: absolute;
+    text-align: center;
+    padding: 65px;
+    width: 200px;
+    height: 190px;
+    left: 800px;
+    top: -200px;
+    font-family: 'Pacifico', cursive;
+    font-size: 20px;
 
+}
 
 .reg {
     position: absolute;
@@ -89,24 +100,11 @@ width: 960px;
 
     }
 }
-#message {
-    position: absolute;
-    text-align: center;
-    padding: 65px;
-    width: 250px;
-    height: 190px;
-    left: 825px;
-    top: -200px;
-    font-family: 'Pacifico', cursive;
-    font-size: 20px;
-
-}
-
 .player_mesage_show {
     top: -200px;
     z-index: 100;
     padding: 65px;
-    width: 250px;
+    width: 200px;
     height: 190px;
     background: #FFFFFF;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
@@ -118,11 +116,11 @@ width: 960px;
 
 .player_mesage{
     position: absolute;
-    left: 825px;
+    left: 568px;
     top: 129px;
     z-index: 100;
     padding: 65px;
-    width: 250px;
+    width: 200px;
     height: 190px;
     background: #FFFFFF;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
