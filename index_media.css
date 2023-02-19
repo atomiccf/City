@@ -1,0 +1,79 @@
+@media (max-width: 1200px) {
+    .container {
+        margin: 0 auto;
+        width: 1140px;
+    }
+    .header_background{
+        height: 421px;
+        background-image: url("img/goroda-min.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+}
+
+
+@media (max-width: 1199px) {
+    .container {
+        margin: 0 auto;
+        width: 960px;
+    }
+    .header_background{
+        height: 313px;
+        background-image: url("img/goroda-min.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+}
+
+@media (max-width: 991px) {
+    .container {
+        margin: 0 auto;
+        width: 720px;
+    }
+    .header_background{
+        height: 232px;
+        background-image: url("img/goroda-min.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+}
+
+@media (max-width: 767px) {
+    .container {
+        margin: 0 auto;
+        width: 540px;
+    }
+    .header_background{
+        height: 232px;
+        background-image: url("img/goroda-min.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+}
+
+@media (max-width: 767px) {
+    .container {
+        margin: 0 auto;
+        width: 540px;
+    }
+    .header_background{
+        height: 232px;
+        background-image: url("img/goroda-min.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+}
+
+@media (max-width: 575px) {
+    .container {
+        margin: 0 auto;
+        width: 100%;
+    }
+    .header_background{
+        height: 207px;
+        background-image: url("img/goroda-min.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+}
+

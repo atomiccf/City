@@ -1,45 +1,21 @@
-var MainHash={};
-function UpdateContent(URL) {
-    MainHash = URL;
-    let Content = document.getElementById('article');
-    switch (MainHash.pagename) {
-        case 'Main':
-            Content.innerHTML = "<h6>Главная страница</h6>";
-            Content.innerHTML ="<p>Ослабление памяти у людей в последнее время приобретает все больший масштаб. В течение последних нескольких десятков лет, когда появились электронные инструменты, позволяющие записывать все то, что раньше хранилось в памяти, люди стали чаще жаловаться на ухудшение памяти. А происходит это потому, что память у человека перестает получать ежедневные тренировки и постепенно ее функции снижаются. Чтобы остановить этот процесс необходимо тренировать свою память каждый день. И это относится к людям любого возраста.</p>";
+let MainHash={};
 
-            break;
-        case 'Rules':
-            Content.innerHTML = "<h6>Правила</h6>";
-            Content.innerHTML = "<p>Вам дается 30 секунд чтобы запомнить, как расставлены фигуры, после чего начинается фаза игры. Теперь у вас есть 30 секунд чтобы восстановить по памяти поле. Перетаскивайте фигуры в правильные ячейки. Когда вы опускаете фигуру в ячейку она подсвечивается черным. Достать фигуру обратно нельзя. Положить поверх - тоже. Если вы случайно положили не в ту ячейку нажмите кнопку переразложить. За каждый пройденый раунд начисляются очки.</p>";
-
-            break;
-        case 'Start':
-            Content.innerHTML = "<h6>Начало игры</h6>";
-
-            break;
-        case 'Score':
-
-            break;
-
-    }
-
-}
 
 
 function switchToStateFromURLHash() {
-    var URLHash=window.location.hash;
+    let URLHash=window.location.hash;
 
-    var stateStr=URLHash.substr(1);
+    let stateStr=URLHash.substr(1);
 
     if ( stateStr!=="" ) {
-        var parts=stateStr.split("_")
+        let parts=stateStr.split("_")
         MainHash={ pagename: parts[0] }; // первая часть закладки - номер страницы
            }
     else
         MainHash={pagename:'Main'}; // иначе показываем главную страницу
 
 
-    var pageHTML="";
+    let pageHTML="";
     switch ( MainHash.pagename ) {
         case 'Main':
             pageHTML+="<h3>Главная страница</h3>";
@@ -60,7 +36,8 @@ function switchToStateFromURLHash() {
             break;
         case 'Game':
             pageHTML+="<h3>Выбирете игровой режим</h3>";
-            pageHTML+=`<a href="hot_seat/index.html"><p>Hot Seat - игра друг против друга</p></a>`
+            pageHTML+=`<a href="hot_seat/index.html"><p>Hot Seat - игра друг против друга</p></a>`;
+            pageHTML+=`<a href="ai/index.html"><p>Игра против компьютера (рейтинговая игра)</p></a>`;
             break;
     }
     document.getElementById('app').innerHTML=pageHTML;
@@ -68,9 +45,7 @@ function switchToStateFromURLHash() {
 }
 
 function switchToState(newState) {
-    var stateStr=newState.pagename;
-      location.hash=stateStr;
-
+    location.hash=newState.pagename;
 
 }
 
