@@ -23,6 +23,9 @@ width: 960px;
 #message {
     position: absolute;
     text-align: center;
+    padding: 65px;
+    width: 200px;
+    height: 190px;
     left: 800px;
     top: -200px;
     font-family: 'Pacifico', cursive;
@@ -100,6 +103,7 @@ width: 960px;
 .player_mesage_show {
     top: -200px;
     z-index: 100;
+    padding: 65px;
     width: 200px;
     height: 190px;
     background: #FFFFFF;
@@ -115,7 +119,8 @@ width: 960px;
     left: 568px;
     top: 129px;
     z-index: 100;
-    width: 300px;
+    padding: 65px;
+    width: 200px;
     height: 190px;
     background: #FFFFFF;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
@@ -208,14 +213,38 @@ align-items: center;
 
 }
 
-#firstPlayer_gameField{
+#firstPlayer_gameField {
     font-family: 'Pacifico', cursive;
     display: flex;
     flex-flow: column;
     justify-content: flex-start;
-    align-items: center;
-    width: 25%;
+    align-items: flex-start;
+    width: 50%;
+    border: black 1px solid;
+    box-shadow: 1px 2px 4px grey;
     background-color: aliceblue;
+}
+.bubble{
+    text-align: center;
+    display: block;
+    background: lightblue;
+    width: 200px;
+    margin: 30px auto;
+    border-radius: 513px 300px 400px 5px;
+    padding: 20px;
+    box-shadow: 1px 2px 4px grey;
+
+}
+.bubble_second{
+    text-align: center;
+    display: block;
+    background: lightblue;
+    width: 200px;
+    margin: 30px auto;
+    border-radius: 513px 300px 400px 5px;
+    padding: 20px;
+    box-shadow: 1px 2px 4px grey;
+
 }
 
 #secondPlayer_gameField{
@@ -223,8 +252,10 @@ align-items: center;
     display: flex;
     flex-flow: column;
     justify-content: flex-start;
-    align-items: center;
-    width: 25%;
+    align-items: flex-end;
+    width: 50%;
+    border: black 1px solid;
+    box-shadow: 1px 2px 4px grey;
     background-color: aliceblue;
 
     }

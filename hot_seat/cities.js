@@ -15,21 +15,29 @@ class Player {
         setTimeout(() => {
             message.classList.remove('player_mesage');
             message.classList.add('player_mesage_show')
-        }, "2000")
+        }, 2000)
 
         setTimeout(() => {
             message.classList.remove('player_mesage')
             message.classList.remove('player_mesage_show')
-        }, "7000")
+        }, 7000)
 
 
 
     }
-    render(city, block) {
+    render(city, block, className) {
         const answer = document.createElement('span')
+        if (city !== undefined) {
+            answer.classList.add(className)
+            block.appendChild(answer)
+            answer.innerText = city
 
-        block.appendChild(answer)
-        answer.innerText = city
+        }
+        else {
+
+            return
+        }
+
 
     }
     move() {
@@ -39,6 +47,7 @@ class Player {
             field.value = '';
             if (lib.includes(`${ucFirst(tempCity)}`)) {
                 cities.push(`${ucFirst(tempCity)}`)
+                ++this.points
                 return `${ucFirst(tempCity)}`
 
 
@@ -50,37 +59,28 @@ class Player {
 
             if (cities.includes(`${ucFirst(tempCity)}`)) {
                 ++this.mistakes;
-                console.log('такой город уже был');
-
+                return `${ucFirst('такой город уже был')}`
             }
             else if (cities.at(-1)[lastChar] !== tempCity[0]) {
                 ++this.mistakes;
-                console.log('город начинается не на ту букву');
 
+                return `${ucFirst('город начинается не на ту букву')}`
             }
             else if (!lib.includes(`${ucFirst(tempCity)}`)) {
                 ++this.mistakes;
-                console.log('города нет в списке')
-
-
+                return `${ucFirst('такой город не существует')}`
             }
             else {
                 cities.push(`${ucFirst(tempCity)}`);
+                ++this.points;
                 return `${ucFirst(tempCity)}`
 
             }
-
         }
-
-
-
-
     }
 
 
 }
-
-
 
 
 let field = document.getElementById('field');
@@ -90,59 +90,50 @@ let nameOne = document.getElementById('firstPlayer_name');
 let nameTwo = document.getElementById('secondPlayer_name');
 let pointsOne = document.getElementById('firstPlayer_info');
 let pointsTwo = document.getElementById('secondPlayer_info');
-
 let btn = document.getElementById('move');
-let cities = [];
 let tempCity = '';
+const langRegex = /^[A-Za-z]+$/
+const clickAudio = new Audio("../src/pencil_write.mp3");
 
-
-
-const clickAudio = new Audio("../src/pencil_write.mp3")
-
+let cities = [];
+let storage =[];
 let turn = true;
-let gameOver = true
-
-
-
-
-
+let gameOver = true;
 
 let pW = new Player();
-
 let pS = new Player();
-
-
 reg()
-
-
 
 btn.addEventListener('click', (ev) => {
 
-    if (field.value === '') {
-        ev.preventDefault()
-
+    if (field.value === ''|| field.value.match(langRegex) ) {
+        ev.preventDefault();
 
     } else if (turn) {
 
-        pW.render(pW.move(), messageOne)
-        clickSound()
-        ++pW.points
+        pW.render(pW.move(), messageOne,'bubble')
+        clickSound();
+
         pointsOne.innerText = `Score ${pW.points}`;
         if (pW.mistakes === 1) {
-
+            storage.push(`${pW} ${pS}`)
+          /*  localStorage.playerInfo = JSON.stringify(pW)
+            localStorage.playerInfoTwo = JSON.stringify(pS)*/
+            localStorage.playerInfo = JSON.stringify(storage)
             gameOver = false
             return
         }
         pW.message(`Ходит ${pS.name}`)
     } else {
 
-        pS.render(pS.move(), messageTwo)
+        pS.render(pS.move(), messageTwo,'bubble_second')
         clickSound()
-        ++pS.points
+
         pointsTwo.innerText = `Score ${pS.points}`;
         if (pS.mistakes === 1) {
-
-            gameOver = false
+            storage.push(`${pW} ${pS}`)
+            localStorage.playerInfo = JSON.stringify(storage)
+           gameOver = false
             return
         }
         pS.message(`Ходит ${pW.name}`)
@@ -153,16 +144,12 @@ btn.addEventListener('click', (ev) => {
 
 
 function reg (){
-
     const regPlayer = document.getElementById('reg');
     regPlayer.classList.remove('reg')
     regPlayer.classList.add('registration_show');
     const reg_valueOne = document.getElementById('reg_valueOne')
     const reg_valueTwo = document.getElementById('reg_valueTwo')
     const reg_button = document.getElementById('reg_button');
-
-
-
 
     reg_button.addEventListener('click', (ev) => {
         if (reg_valueOne.value === '' || reg_valueTwo.value === '') {
@@ -175,28 +162,19 @@ function reg (){
             regPlayer.classList.remove('registration_hide');
             regPlayer.classList.add('reg')
 
-
-
            pW.name = reg_valueOne.value;
            pS.name = reg_valueTwo.value;
-            console.log(pW.name)
-            console.log(pS.name)
-             nameOne.innerText = `Player ${pW.name}`
-            pointsOne.innerText = `Score ${pW.points}`
-            nameTwo.innerText = `Player ${pS.name}`
-            pointsTwo.innerText = `Score ${pS.points}`
-
-
+           nameOne.innerText = `Player ${pW.name}`
+           pointsOne.innerText = `Score ${pW.points}`
+           nameTwo.innerText = `Player ${pS.name}`
+           pointsTwo.innerText = `Score ${pS.points}`
         }
-
     });
-
 }
 
 
 function ucFirst(str) {
     if (!str) return str;
-
     return str[0].toUpperCase() + str.slice(1);
 }
 
@@ -205,3 +183,17 @@ function clickSound() {
     clickAudio.currentTime = 0; // в секундах
     clickAudio.play();
 }
+const APIKEY ='AIzaSyCT1WHKTRee_o8HXJBuZ3CqmOtBz1AOMqw'
+const IDURL = `https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${tempCity}&types=(cities)&key=${APIKEY}`
+
+
+
+fetch(IDURL)
+       .then((response) => {
+        return response.json();
+        })
+        .then((data) => {
+            console.log(data);
+        });
+
+

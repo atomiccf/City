@@ -60,7 +60,7 @@ function switchToStateFromURLHash() {
             break;
         case 'Game':
             pageHTML+="<h3>Выбирете игровой режим</h3>";
-            pageHTML+=`<a href="hot_seat/game_hotseat.html"><p>Hot Seat - игра друг против друга</p></a>`
+            pageHTML+=`<a href="hot_seat/index.html"><p>Hot Seat - игра друг против друга</p></a>`
             break;
     }
     document.getElementById('app').innerHTML=pageHTML;
