@@ -17,83 +17,65 @@ let gameOver = true;
 let pW = new Player();
 let pS = new Player();
 
-
-
+const rand = (a, b) => Math.floor((Math.random() * (b - a + 1) + a));
 
 btn.addEventListener('click', (ev) => {
 
-    if (field.value === ''|| field.value.match(langRegex) ) {
+    if (field.value === '' || field.value.match(langRegex)) {
         ev.preventDefault();
 
     } else if (turn) {
 
-        pW.render(pW.move(), messageOne,'bubble')
-
-
+        pW.render(pW.move(), messageOne, 'bubble')
 
         pW.message(`Ходит компьютер`)
 
-
-
         pointsOne.innerText = `Score ${pW.points}`;
 
+        setTimeout(aiTurn, rand(1000,10000));
 
-    } else {
-        const intervalID = setInterval( () => {
-
-            aiTurn() ;
-
-        }, 2000 );
-
-        pW.message(`${pW.name}`)
+        pW.message(pW.name);
 
     }
-    turn = !turn;
+    //   turn = !turn;
 
 })
 
 
-
-
-
-
-
-
-
-
-function aiTurn (){
-
-    if (cities.length === 0) {
+function aiTurn() {
+    /*if (cities.length === 0) {
+        console.log(0);
         let aiCity = randomCity()
         cities.push(aiCity)
-        renderAl(aiCity,messageTwo,'bubble_second');
-    }
-    if (cities.length !== 0 ) {
-        let aiCity = randomCity()
-        let lastChar = cities.at(-1).length-1;
-        if (cities.includes(aiCity) ||  cities.at(-1)[lastChar] !== aiCity[0])  {
-            lib.find ( elem => {
-                elem = aiCity.toLowerCase()
-                if (elem[0] === cities.at(-1)[lastChar] && cities.includes(elem)===false){
-                    cities.push(elem)
-                    renderAl(aiCity,messageTwo,'bubble_second');
-                }
-           })
+        renderAl(aiCity, messageTwo, 'bubble_second');
+    }*/
 
-        }
+    let aiCity = randomCity()
+    const lastCity = cities[cities.length - 1];
+    let lastChar = lastCity[lastCity.length - 1];
+    console.log(lastChar);
+    if (!cities.includes(aiCity) || lastChar !== aiCity[0]) {
+        lib.find(elem => {
+            console.log(elem)
+            if (elem[0].toLowerCase() === lastChar && !cities.includes(elem)) {
+                cities.push(elem)
+                renderAl(elem, messageTwo, 'bubble_second');
+                return elem;
+            }
+        })
     }
 
 }
 
-function randomCity () {
+function randomCity() {
 
-    let rand = Math.floor(Math.random(lib)*lib.length)
+    let rand = Math.floor(Math.random(lib) * lib.length)
 
     return lib[rand]
 }
 
 
-function renderAl (city, block, className){
+function renderAl(city, block, className) {
 
     const answer = document.createElement('span')
 
@@ -107,6 +89,7 @@ function ucFirst(str) {
     if (!str) return str;
     return str[0].toUpperCase() + str.slice(1);
 }
+
 function clickSound() {
     clickAudio.currentTime = 0; // в секундах
     clickAudio.play();

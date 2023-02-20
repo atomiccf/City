@@ -238,7 +238,7 @@ align-items: center;
 .bubble_second{
     text-align: center;
     display: block;
-    background: lightblue;
+    background: #66e880;
     width: 200px;
     margin: 30px auto;
     border-radius: 513px 300px 400px 5px;
