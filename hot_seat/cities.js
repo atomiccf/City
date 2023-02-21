@@ -1,19 +1,17 @@
 let field = document.getElementById('field');
-let messageOne = document.getElementById('firstPlayer_gameField');
-let messageTwo = document.getElementById('secondPlayer_gameField');
-let nameOne = document.getElementById('firstPlayer_name');
-let nameTwo = document.getElementById('secondPlayer_name');
-let pointsOne = document.getElementById('firstPlayer_info');
-let pointsTwo = document.getElementById('secondPlayer_info');
-let btn = document.getElementById('move');
+const messageOne = document.getElementById('firstPlayer_gameField');
+const messageTwo = document.getElementById('secondPlayer_gameField');
+const nameOne = document.getElementById('firstPlayer_name');
+const nameTwo = document.getElementById('secondPlayer_name');
+const pointsOne = document.getElementById('firstPlayer_info');
+const pointsTwo = document.getElementById('secondPlayer_info');
+const btn = document.getElementById('move');
 let tempCity = '';
 const langRegex = /^[A-Za-z]+$/
 const clickAudio = new Audio("../src/pencil_write.mp3");
-
 let cities = [];
-let storage =[];
 let turn = true;
-let gameOver = true;
+
 
 let pW = new Player();
 let pS = new Player();
@@ -31,12 +29,11 @@ btn.addEventListener('click', (ev) => {
 
         pointsOne.innerText = `Score ${pW.points}`;
         if (pW.mistakes === 1) {
-            storage.push(`${pW} ${pS}`)
-            localStorage.playerInfo = JSON.stringify(storage)
-            gameOver = false
+
+            gameOver()
             return
         }
-                pW.message(`Ходит ${pS.name}`)
+        pW.message(`Ходит ${pS.name}`)
     } else {
 
         pS.render(pS.move(), messageTwo,'bubble_second')
@@ -44,7 +41,7 @@ btn.addEventListener('click', (ev) => {
 
         pointsTwo.innerText = `Score ${pS.points}`;
         if (pS.mistakes === 1) {
-
+            gameOver()
             btn.removeEventListener("click", (ev) =>{})
         }
         pS.message(`Ходит ${pS.name}`)
@@ -84,6 +81,21 @@ function reg (){
 
 }
 
+function gameOver() {
+    const gameOver = document.getElementById('gameOver');
+    const nameOne = document.getElementById('scoreNameOne');
+    const nameTwo = document.getElementById('scoreNameTwo');
+    const pointsOne = document.getElementById('scoreOne');
+    const pointsTwo = document.getElementById('scoreTwo');
+
+    gameOver.classList.remove('gameOver');
+    gameOver.classList.add('gameOver_show');
+    nameOne.innerText = `Player: ${pW.name}`;
+    nameTwo.innerText = `Player: ${pS.name}`;
+    pointsOne.innerText = `Points ${pW.points}`
+    pointsTwo.innerText = `Points ${pS.points}`
+
+}
 
 function ucFirst(str) {
     if (!str) return str;
