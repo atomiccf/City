@@ -243,9 +243,7 @@ align-items: center;
     justify-content: flex-start;
     align-items: flex-start;
     width: 25%;
-    border: black 1px solid;
-    box-shadow: 1px 2px 4px grey;
-    background-color: aliceblue;
+    background-color: transparent;
 }
 .bubble{
     text-align: center;
@@ -277,9 +275,7 @@ align-items: center;
     justify-content: flex-start;
     align-items: flex-end;
     width: 25%;
-    border: black 1px solid;
-    box-shadow: 1px 2px 4px grey;
-    background-color: aliceblue;
+    background-color: transparent;
 
     }
 
