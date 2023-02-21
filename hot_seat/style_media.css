@@ -57,6 +57,12 @@
 
     }
 
+    .input_block {
+        display: flex;
+        flex-flow: row;
+        margin-left: 110px;
+    }
+
     /* show/hide slide */
     @keyframes slideDown {
         0% {
