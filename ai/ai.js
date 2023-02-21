@@ -45,16 +45,20 @@ function aiTurn() {
     let aiCity = randomCity()
     const lastCity = cities[cities.length - 1];
     let lastChar = lastCity[lastCity.length - 1];
-    console.log(lastChar);
     if (!cities.includes(aiCity) || lastChar !== aiCity[0]) {
         lib.find(elem => {
-            console.log(elem)
+
             if (elem[0].toLowerCase() === lastChar && !cities.includes(elem)) {
                 cities.push(elem)
                 renderAl(elem, messageTwo, 'bubble_second');
                 return elem;
             }
         })
+    }
+    if (pW.mistakes === 1) {
+
+        gameOver()
+        btn.removeEventListener("click", (ev) =>{})
     }
 
 }
@@ -109,7 +113,7 @@ function reg (){
 
         }
         if (pW.mistakes === 1) {
-
+            gameOver()
             btn.removeEventListener("click", (ev) =>{})
             return
         }
@@ -117,5 +121,18 @@ function reg (){
     });
 
 }
+function gameOver() {
+    const gameOver = document.getElementById('gameOver');
+    const nameOne = document.getElementById('scoreNameOne');
 
+    const pointsOne = document.getElementById('scoreOne');
+
+
+    gameOver.classList.remove('gameOver');
+    gameOver.classList.add('gameOver_show');
+    nameOne.innerText = `Player: ${pW.name}`;
+    pointsOne.innerText = `Points ${pW.points}`
+
+
+}
 const rand = (a, b) => Math.floor((Math.random() * (b - a + 1) + a));

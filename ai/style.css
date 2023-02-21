@@ -18,13 +18,13 @@ body {
 
 }@keyframes gradient {
      0% {
-         background-position: 0% 0%;
+         background-position: 0 0;
      }
      50% {
          background-position: 100% 100%;
      }
      100% {
-         background-position: 0% 0%;
+         background-position: 0 0;
      }
  }
 
@@ -38,7 +38,39 @@ display: flex;
 flex-flow: column;
 
 }
+.gameOver {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: -380px;
+    width: 300px;
+    height: 362px;
+    background-color: #F8F9FA;
+    border:1px black solid;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    opacity: 0;
 
+}
+.gameOver_show{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 150px;
+    left: 47px;
+    width: 300px;
+    height: 282px;
+    background-color: #F8F9FA;
+    border:1px black solid;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    opacity:1;
+    animation: slideLeft 5s;
+}
 
 .reg {
     position: absolute;
@@ -303,6 +335,18 @@ align-items: center;
 
     100% {
         top: -200px;
+
+    }
+}
+
+@keyframes slideLeft {
+    0% {
+        left: -380px;
+    }
+
+
+    100% {
+        top: 334px;
 
     }
 }

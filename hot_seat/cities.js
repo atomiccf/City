@@ -31,7 +31,7 @@ btn.addEventListener('click', (ev) => {
         if (pW.mistakes === 1) {
 
             gameOver()
-            return
+            btn.removeEventListener("click", (ev) =>{})
         }
         pW.message(`Ходит ${pS.name}`)
     } else {
