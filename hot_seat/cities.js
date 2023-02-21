@@ -44,10 +44,8 @@ btn.addEventListener('click', (ev) => {
 
         pointsTwo.innerText = `Score ${pS.points}`;
         if (pS.mistakes === 1) {
-            storage.push(`${pW} ${pS}`)
-            localStorage.playerInfo = JSON.stringify(storage)
-           gameOver = false
-            return
+
+            btn.removeEventListener("click", (ev) =>{})
         }
         pS.message(`Ходит ${pS.name}`)
     }

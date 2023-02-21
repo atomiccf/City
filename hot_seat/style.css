@@ -139,7 +139,7 @@ align-items: center;
 
 .gameField_block {
     position: relative;
-    margin-bottom: 10px;
+    margin-bottom: 100px;
     width: 100%;
     height: auto;
     display: flex;

@@ -108,6 +108,11 @@ function reg (){
             pointsOne.innerText = `Score ${pW.points}`
 
         }
+        if (pW.mistakes === 1) {
+
+            btn.removeEventListener("click", (ev) =>{})
+            return
+        }
         pW.message(`Ходит ${pW.name}`)
     });
 
