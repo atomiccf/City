@@ -178,6 +178,7 @@ align-items: center;
     flex-flow: row;
     margin-left: 326px;
 }
+
 #firstPlayer_name{
 
     font-family: 'Pacifico', cursive;
@@ -188,6 +189,7 @@ align-items: center;
     text-align: center;
 
 }
+
 #secondPlayer_name{
     margin-left: 10px;
     width: 25%;
@@ -196,6 +198,7 @@ align-items: center;
     background-color: aquamarine;
     text-align: center;
 }
+
 #firstPlayer_info {
 
     font-family: 'Pacifico', cursive;
