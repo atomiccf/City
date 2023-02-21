@@ -76,9 +76,9 @@ function reg (){
 
           pW.name = reg_valueOne.value;
           pS.name = reg_valueTwo.value;
-          nameOne.innerText = `Player ${pW.name}`
+          nameOne.innerText = `Player: ${pW.name}`
           pointsOne.innerText = `Score ${pW.points}`
-          nameTwo.innerText = `Player ${pS.name}`
+          nameTwo.innerText = `Player: ${pS.name}`
           pointsTwo.innerText = `Score ${pS.points}`
         }
         pW.message(`Ходит ${pW.name}`)
