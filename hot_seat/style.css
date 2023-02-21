@@ -69,7 +69,7 @@ flex-flow: column;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     opacity:1;
-    animation: slideLeft 2s;
+    animation: slideRight 4s;
 }
 
 
@@ -340,14 +340,14 @@ align-items: center;
     }
 }
 
-@keyframes slideLeft {
+@keyframes slideRight {
     0% {
         left: -380px;
     }
 
 
     100% {
-        top: 334px;
+        left: 334px;
 
     }
 }

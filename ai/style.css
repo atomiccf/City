@@ -44,6 +44,7 @@ flex-flow: column;
     justify-content: center;
     align-items: center;
     position: absolute;
+    top: 0;
     left: -380px;
     width: 300px;
     height: 362px;
@@ -60,8 +61,8 @@ flex-flow: column;
     justify-content: center;
     align-items: center;
     position: absolute;
-    top: 150px;
-    left: 47px;
+    top: 0;
+    left: 334px;
     width: 300px;
     height: 282px;
     background-color: #F8F9FA;
@@ -69,7 +70,7 @@ flex-flow: column;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     opacity:1;
-    animation: slideLeft 5s;
+    animation: slideLeft 6s;
 }
 
 .reg {
@@ -261,7 +262,7 @@ align-items: center;
     display: block;
     background: lightblue;
     width: 200px;
-    height: 25px;
+    height: 35px;
     margin: 30px auto;
     border-radius: 513px 300px 400px 5px;
     box-shadow: 1px 2px 4px grey;
@@ -272,7 +273,7 @@ align-items: center;
     display: block;
     background: #73e75b;
     width: 200px;
-    height: 25px;
+    height: 35px;
     margin: 30px auto;
     border-radius: 513px 300px 400px 5px;
     box-shadow: 1px 2px 4px grey;
@@ -346,7 +347,7 @@ align-items: center;
 
 
     100% {
-        top: 334px;
+        left: 334px;
 
     }
 }

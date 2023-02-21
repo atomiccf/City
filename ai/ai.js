@@ -27,13 +27,17 @@ btn.addEventListener('click', (ev) => {
         clickSound()
 
         pointsOne.innerText = `Score ${pW.points}`;
-
-        setTimeout(aiTurn,  rand(1000,10000));
-
         pW.message('Ход компьютера');
+        let timerId = setTimeout(aiTurn,  rand(1000,10000));
+
+        if (pW.mistakes === 1) {
+            clearTimeout(timerId);
+            gameOver()
+            btn.removeEventListener("click", (ev) =>{})
+        }
 
     }
-    //   turn = !turn;
+
 
 })
 
@@ -55,11 +59,7 @@ function aiTurn() {
             }
         })
     }
-    if (pW.mistakes === 1) {
 
-        gameOver()
-        btn.removeEventListener("click", (ev) =>{})
-    }
 
 }
 
