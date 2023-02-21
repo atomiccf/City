@@ -231,18 +231,16 @@
         width: 169px;
         margin: 30px auto;
         border-radius: 513px 300px 400px 5px;
-        padding: 20px;
         box-shadow: 1px 2px 4px grey;
 
     }
     .bubble_second{
         text-align: center;
         display: block;
-        background: lightblue;
+        background: #66e880;
         width: 169px;
         margin: 30px auto;
         border-radius: 513px 300px 400px 5px;
-        padding: 20px;
         box-shadow: 1px 2px 4px grey;
 
     }
