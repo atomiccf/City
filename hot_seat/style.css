@@ -73,30 +73,6 @@ flex-flow: column;
 }
 
 
-/* show/hide slide */
-@keyframes slideDown {
-    0% {
-        top: -200px;
-    }
-
-
-    100% {
-        top: 129px;
-
-    }
-}
-@keyframes slideTop {
-    0% {
-        top: 129px;
-    }
-
-
-    100% {
-        top: -200px;
-
-    }
-}
-
 #message {
     position: absolute;
     text-align: center;
@@ -305,3 +281,28 @@ align-items: center;
               }
 
       }
+
+
+/* show/hide slide */
+@keyframes slideDown {
+    0% {
+        top: -200px;
+    }
+
+
+    100% {
+        top: 129px;
+
+    }
+}
+@keyframes slideTop {
+    0% {
+        top: 129px;
+    }
+
+
+    100% {
+        top: -200px;
+
+    }
+}
