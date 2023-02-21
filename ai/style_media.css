@@ -4,13 +4,7 @@
         width: 100%;
     }
 
-    .container {
-        position: relative;
-        margin: 0 auto;
-        width: 100%;
 
-
-    }
 
 
     .reg {
@@ -31,7 +25,7 @@
     .registration_show {
         padding: 25px;
         position: absolute;
-        left: 54px;
+        left: 20px;
         top: 0;
         width: 300px;
         height: 190px;
@@ -86,7 +80,7 @@
         align-items: center;
         position: absolute;
         top: 150px;
-        left: 47px;
+        left: 33px;
         width: 300px;
         height: 282px;
         background-color: #F8F9FA;
@@ -210,6 +204,7 @@
     .input_block {
         display: flex;
         flex-flow: row;
+        margin-left: 3px;
     }
     #firstPlayer_name{
         font-family: 'BIZ UDMincho', serif;
@@ -332,7 +327,7 @@
 
 
     100% {
-        left: 47px;
+        left: 33px;
 
     }
 }
