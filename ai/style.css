@@ -129,7 +129,7 @@ flex-flow: column;
     border:1px black solid;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
-    animation: slideTop 2s;
+    animation: slideDown 2s;
     
 }
 
@@ -348,6 +348,24 @@ align-items: center;
 
     100% {
         left: 334px;
+
+    }
+}
+
+@keyframes slideDown {
+    0% {
+
+        top: -200px;
+
+    }
+    50% {
+
+        top: 100px;
+
+    }
+    100% {
+
+        top: -200px;
 
     }
 }

@@ -33,6 +33,7 @@ btn.addEventListener('click', (ev) => {
             clearTimeout(timerId);
             gameOver()
             btn.removeEventListener("click", (ev) =>{})
+            return
         }
 
     }
@@ -119,15 +120,19 @@ function reg (){
 function gameOver() {
     const gameOver = document.getElementById('gameOver');
     const nameOne = document.getElementById('scoreNameOne');
-
+    const nameTwo = document.getElementById('scoreNameTwo');
     const pointsOne = document.getElementById('scoreOne');
-
-
+    const pointsTwo = document.getElementById('scoreTwo');
+    let message = document.getElementById('message');
+    message.classList.remove('player_mesage')
+    message.classList.remove('player_mesage_show')
     gameOver.classList.remove('gameOver');
     gameOver.classList.add('gameOver_show');
     nameOne.innerText = `Player: ${pW.name}`;
+    nameTwo.innerText = `Player: ${pS.name}`;
     pointsOne.innerText = `Points ${pW.points}`
-
+    pointsTwo.innerText = `Points ${pS.points}`
 
 }
+
 const rand = (a, b) => Math.floor((Math.random() * (b - a + 1) + a));

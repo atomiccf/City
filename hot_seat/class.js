@@ -11,15 +11,15 @@ class Player {
         let message = document.getElementById('message');
         message.innerHTML = text;
         message.classList.add('player_mesage');
-        setTimeout(() => {
+         setTimeout(() => {
             message.classList.remove('player_mesage');
             message.classList.add('player_mesage_show')
         }, 2000)
 
-        setTimeout(() => {
+       setTimeout(() => {
             message.classList.remove('player_mesage')
             message.classList.remove('player_mesage_show')
-        }, 7000)
+        }, 4000)
 
 
 

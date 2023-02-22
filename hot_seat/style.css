@@ -134,7 +134,7 @@ flex-flow: column;
 }
 
 
-.player_mesage{
+/*.player_mesage{
     position: absolute;
     left: 425px;
     top: 129px;
@@ -149,7 +149,7 @@ flex-flow: column;
 
 animation: slideDown 2s;
 
-}
+}*/
 
 .gameField {
   position: relative;
@@ -325,7 +325,7 @@ align-items: center;
     }
     50% {
 
-        top: 150px;
+        top: 100px;
 
     }
     100% {
@@ -335,3 +335,16 @@ align-items: center;
     }
 }
 
+
+
+@keyframes slideRight {
+    0% {
+        left: -380px;
+    }
+
+
+    100% {
+        left: 334px;
+
+    }
+}
