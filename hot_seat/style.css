@@ -129,7 +129,7 @@ flex-flow: column;
     border:1px black solid;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
-    animation: slideTop 2s;
+    animation: slideDown 2s;
     
 }
 
@@ -147,9 +147,9 @@ flex-flow: column;
     border:1px black solid;
     border-radius: 10px;
 
-animation: slideDown 2s; 
+animation: slideDown 2s;
 
-} 
+}
 
 .gameField {
   position: relative;
@@ -319,15 +319,22 @@ align-items: center;
 /* show/hide slide */
 @keyframes slideDown {
     0% {
+
         top: -200px;
+
     }
+    50% {
+        background-color: green;
+        top: 150px;
 
-
+    }
     100% {
-        top: 129px;
+
+        top: -200px;
 
     }
 }
+
 @keyframes slideTop {
     0% {
         top: 129px;

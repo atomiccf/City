@@ -94,7 +94,7 @@
         box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
         border-radius: 10px;
         opacity:1;
-        animation: slideRight 4s;
+        animation: slideGameOver 4s;
     }
     @keyframes slideLeft {
         0% {
@@ -325,7 +325,7 @@
 
 }
 
-@keyframes slideRight {
+@keyframes slideGameOver {
     0% {
         left: -380px;
     }

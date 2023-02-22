@@ -10,7 +10,6 @@ class Player {
     message(text) {
         let message = document.getElementById('message');
         message.innerHTML = text;
-
         message.classList.add('player_mesage');
         setTimeout(() => {
             message.classList.remove('player_mesage');

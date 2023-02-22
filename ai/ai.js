@@ -25,7 +25,6 @@ btn.addEventListener('click', (ev) => {
 
         pW.render(pW.move(), messageOne, 'bubble')
         clickSound()
-
         pointsOne.innerText = `Score ${pW.points}`;
         pW.message('Ход компьютера');
         let timerId = setTimeout(aiTurn,  rand(1000,10000));
@@ -112,11 +111,7 @@ function reg (){
             pointsOne.innerText = `Score ${pW.points}`
 
         }
-        if (pW.mistakes === 1) {
-            gameOver()
-            btn.removeEventListener("click", (ev) =>{})
-            return
-        }
+
         pW.message(`Ходит ${pW.name}`)
     });
 
