@@ -70,7 +70,7 @@ flex-flow: column;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     opacity:1;
-    animation: slideLeft 6s;
+    animation: slideLeft 4s;
 }
 
 .reg {

@@ -324,7 +324,7 @@ align-items: center;
 
     }
     50% {
-        background-color: green;
+
         top: 150px;
 
     }
@@ -335,26 +335,3 @@ align-items: center;
     }
 }
 
-@keyframes slideTop {
-    0% {
-        top: 129px;
-    }
-
-
-    100% {
-        top: -200px;
-
-    }
-}
-
-@keyframes slideRight {
-    0% {
-        left: -380px;
-    }
-
-
-    100% {
-        left: 334px;
-
-    }
-}

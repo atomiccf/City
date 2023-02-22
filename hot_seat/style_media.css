@@ -111,22 +111,17 @@
     /* show/hide slide */
     @keyframes slideDown {
         0% {
+
             top: -200px;
+
         }
+        50% {
 
+            top: 150px;
 
+        }
         100% {
-            top: 129px;
 
-        }
-    }
-    @keyframes slideTop {
-        0% {
-            top: 129px;
-        }
-
-
-        100% {
             top: -200px;
 
         }
@@ -324,7 +319,23 @@
     }
 
 }
+@keyframes slideDown {
+    0% {
 
+        top: -200px;
+
+    }
+    50% {
+
+        top: 150px;
+
+    }
+    100% {
+
+        top: -200px;
+
+    }
+}
 @keyframes slideGameOver {
     0% {
         left: -380px;

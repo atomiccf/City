@@ -87,7 +87,9 @@ function gameOver() {
     const nameTwo = document.getElementById('scoreNameTwo');
     const pointsOne = document.getElementById('scoreOne');
     const pointsTwo = document.getElementById('scoreTwo');
-
+    let message = document.getElementById('message');
+    message.classList.remove('player_mesage')
+    message.classList.remove('player_mesage_show')
     gameOver.classList.remove('gameOver');
     gameOver.classList.add('gameOver_show');
     nameOne.innerText = `Player: ${pW.name}`;
