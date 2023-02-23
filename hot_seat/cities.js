@@ -29,9 +29,9 @@ btn.addEventListener('click', (ev) => {
 
         pointsOne.innerText = `Score ${pW.points}`;
         if (pW.mistakes === 1) {
-
             gameOver()
             btn.removeEventListener("click", (ev) =>{})
+            return
         }
         pW.message(`Ходит ${pS.name}`)
     } else {
