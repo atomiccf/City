@@ -26,14 +26,14 @@ btn.addEventListener('click', (ev) => {
         pW.render(pW.move(), messageOne, 'bubble')
         clickSound()
         pointsOne.innerText = `Score ${pW.points}`;
-        pW.message('Ход компьютера');
+
         let timerId = setTimeout(aiTurn,  rand(1000,10000));
 
         if (pW.mistakes === 1) {
             clearTimeout(timerId);
             gameOver()
             btn.removeEventListener("click", (ev) =>{})
-            return
+
         }
 
     }
@@ -129,9 +129,8 @@ function gameOver() {
     gameOver.classList.remove('gameOver');
     gameOver.classList.add('gameOver_show');
     nameOne.innerText = `Player: ${pW.name}`;
-    nameTwo.innerText = `Player: ${pS.name}`;
     pointsOne.innerText = `Points ${pW.points}`
-    pointsTwo.innerText = `Points ${pS.points}`
+
 
 }
 
