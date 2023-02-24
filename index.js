@@ -1,6 +1,6 @@
 let MainHash={};
 
-
+app = document.getElementById('app');
 
 function switchToStateFromURLHash() {
     let URLHash=window.location.hash;
@@ -39,6 +39,10 @@ function switchToStateFromURLHash() {
             pageHTML+=`<a href="hot_seat/index.html"><p>Hot Seat - игра друг против друга</p></a>`;
             pageHTML+=`<a href="ai/index.html"><p>Игра против компьютера (рейтинговая игра)</p></a>`;
             break;
+        case 'Records':
+
+            showRecords () ;
+
     }
     document.getElementById('app').innerHTML=pageHTML;
 
@@ -65,4 +69,59 @@ function switchToGamePage() {
 
 }
 
+function switchToRecords() {
+    switchToState( { pagename:'Records' } );
+    document.location.reload();
+
+}
+
+const URL='https://fe.it-academy.by/AjaxStringStorage2.php';
+const NAME='CFC_120390';
+const REQUEST_TYPE={
+    READ:'READ',
+    LOCKGET:'LOCKGET',
+    UPDATE:'UPDATE',
+    INSERT:'INSERT',
+};
+async function showRecords () {
+
+    const users = await request (REQUEST_TYPE.READ,NAME);
+    console.log(users)
+    render (users);
+
+}
+
+
+function render (users) {
+    let strLI='';
+    console.log(users)
+    users.forEach (user => {
+        strLI+= `
+            <li class="table_row">${user.firstName}: ${user.points}</li>`
+    });
+    app.innerHTML+="<h3 class='record_table'>Таблица рекордов</h3>"
+    app.innerHTML+=strLI;
+}
+
+async function request (func,name,pass,val) {
+    let sp=new URLSearchParams();
+    sp.append('f', func);
+    sp.append('n', name);
+    pass && sp.append('p', pass);
+    val && sp.append('v', val);
+
+    try {
+        const response= await fetch ( URL, { method:'POST', body: sp });
+        const data = await response.json();
+
+        if (data.result === 'OK') {
+            alert('Success');
+
+            return;
+        }
+        return JSON.parse(data.result);
+    } catch (err) {
+        alert (err);
+    }
+}
 switchToStateFromURLHash();

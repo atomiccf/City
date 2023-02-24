@@ -2,9 +2,9 @@ let field = document.getElementById('field');
 let messageOne = document.getElementById('firstPlayer_gameField');
 let messageTwo = document.getElementById('secondPlayer_gameField');
 let nameOne = document.getElementById('firstPlayer_name');
-
+const regPlayer = document.getElementById('reg');
 let pointsOne = document.getElementById('firstPlayer_info');
-
+const send = document.getElementById('send');
 let btn = document.getElementById('move');
 let tempCity = '';
 const langRegex = /^[A-Za-z]+$/
@@ -32,7 +32,7 @@ btn.addEventListener('click', (ev) => {
         if (pW.mistakes === 1) {
             clearTimeout(timerId);
             gameOver()
-            btn.removeEventListener("click", (ev) =>{})
+            btn.removeEventListener("click", () =>{})
 
         }
 
@@ -92,7 +92,7 @@ function clickSound() {
 }
 
 function reg (){
-    const regPlayer = document.getElementById('reg');
+
     regPlayer.classList.remove('reg')
     regPlayer.classList.add('registration_show');
     const reg_valueOne = document.getElementById('reg_valueOne')
@@ -108,7 +108,7 @@ function reg (){
             regPlayer.classList.remove('registration_hide');
             regPlayer.classList.add('reg')
             pW.name = reg_valueOne.value;
-            nameOne.innerText = `Player: ${pW.name}`
+            nameOne.innerText = `Player ${pW.name}`
             pointsOne.innerText = `Score ${pW.points}`
 
         }
@@ -120,9 +120,9 @@ function reg (){
 function gameOver() {
     const gameOver = document.getElementById('gameOver');
     const nameOne = document.getElementById('scoreNameOne');
-    const nameTwo = document.getElementById('scoreNameTwo');
+
     const pointsOne = document.getElementById('scoreOne');
-    const pointsTwo = document.getElementById('scoreTwo');
+
     let message = document.getElementById('message');
     message.classList.remove('player_mesage')
     message.classList.remove('player_mesage_show')
@@ -133,5 +133,70 @@ function gameOver() {
 
 
 }
+//AJAX
 
 const rand = (a, b) => Math.floor((Math.random() * (b - a + 1) + a));
+const URL='https://fe.it-academy.by/AjaxStringStorage2.php';
+const NAME='CFC_120390';
+const REQUEST_TYPE={
+    READ:'READ',
+    LOCKGET:'LOCKGET',
+    UPDATE:'UPDATE',
+    INSERT:'INSERT',
+};
+
+send.addEventListener('click', async () =>{
+    const {innerText: firstName} = nameOne;
+    const {innerText: points} = pointsOne;
+    const user = {
+        firstName,
+        points,
+    };
+
+    const updatePassword=Math.random ();
+    const requestUsers=await request ( REQUEST_TYPE.READ, NAME);
+
+    if(!requestUsers) {
+        const res = [{...user}];
+
+        await request (REQUEST_TYPE.LOCKGET, NAME, updatePassword);
+        await request (REQUEST_TYPE.UPDATE, NAME, updatePassword, JSON.stringify(res));
+    }
+    else {
+        requestUsers.push(user);
+        await request ( REQUEST_TYPE.LOCKGET, NAME,updatePassword);
+        await request(REQUEST_TYPE.UPDATE,NAME,updatePassword, JSON.stringify(requestUsers));
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
+async function request (func,name,pass,val) {
+    let sp=new URLSearchParams();
+    sp.append('f', func);
+    sp.append('n', name);
+    pass && sp.append('p', pass);
+    val && sp.append('v', val);
+
+    try {
+        const response= await fetch ( URL, { method:'POST', body: sp });
+        const data = await response.json();
+
+        if (data.result === 'OK') {
+            alert('Success');
+
+            return;
+        }
+        return JSON.parse(data.result);
+    } catch (err) {
+        alert (err);
+    }
+}

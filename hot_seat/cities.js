@@ -30,7 +30,7 @@ btn.addEventListener('click', (ev) => {
         pointsOne.innerText = `Score ${pW.points}`;
         if (pW.mistakes === 1) {
             gameOver()
-            btn.removeEventListener("click", (ev) =>{})
+            btn.removeEventListener("click", () =>{})
             return
         }
         pW.message(`Ходит ${pS.name}`)
@@ -42,7 +42,7 @@ btn.addEventListener('click', (ev) => {
         pointsTwo.innerText = `Score ${pS.points}`;
         if (pS.mistakes === 1) {
             gameOver()
-            btn.removeEventListener("click", (ev) =>{})
+            btn.removeEventListener("click", () =>{})
             return
         }
 
@@ -108,6 +108,9 @@ function clickSound() {
     clickAudio.currentTime = 0; // в секундах
     clickAudio.play();
 }
+
+
+
 
 
 

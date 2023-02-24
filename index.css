@@ -10,6 +10,16 @@ body {
   background-color: aliceblue;
 }
 
+.record_table {
+  text-align: center;
+}
+
+.table_row {
+  list-style-type: none;
+  text-align: center;
+  font-size: 25px;
+}
+
 .container {
   margin: 0 auto;
   width: 1200px;

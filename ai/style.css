@@ -30,6 +30,8 @@ body {
 
 
 
+
+
 .container {
 position: relative;
 margin: 0 auto;
@@ -150,6 +152,9 @@ flex-flow: column;
 animation: slideDown 2s; 
 
 } 
+
+
+
 
 .gameField {
   position: relative;
