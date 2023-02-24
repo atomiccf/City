@@ -170,15 +170,6 @@ send.addEventListener('click', async () =>{
 });
 
 
-
-
-
-
-
-
-
-
-
 async function request (func,name,pass,val) {
     let sp=new URLSearchParams();
     sp.append('f', func);
@@ -191,7 +182,7 @@ async function request (func,name,pass,val) {
         const data = await response.json();
 
         if (data.result === 'OK') {
-            alert('Success');
+
 
             return;
         }
