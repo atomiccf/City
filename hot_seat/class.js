@@ -50,7 +50,9 @@ class Player {
                 return `${ucFirst(tempCity)}`
 
             }
-        } else if (cities.length > 0) {
+        } else
+
+            if (cities.length > 0) {
             tempCity = field.value.toLowerCase();
             field.value = '';
             let lastChar = cities.at(-1).length - 1;
@@ -59,15 +61,15 @@ class Player {
                 ++this.mistakes;
                 return `${ucFirst('такой город уже был')}`
             }
-            else if (cities.at(-1)[lastChar] !== tempCity[0]) {
+            else if (!lib.includes(`${ucFirst(tempCity)}`)) {
+                ++this.mistakes;
+                return `${ucFirst('такой город не существует')}`
+            }  else   if (cities.at(-1)[lastChar] !== tempCity[0]) {
                 ++this.mistakes;
 
                 return `${ucFirst('город начинается не на ту букву')}`
             }
-            else if (!lib.includes(`${ucFirst(tempCity)}`)) {
-                ++this.mistakes;
-                return `${ucFirst('такой город не существует')}`
-            }
+
             else {
                 cities.push(`${ucFirst(tempCity)}`);
                 ++this.points;
